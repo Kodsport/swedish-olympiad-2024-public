@@ -1,0 +1,50 @@
+\problemname{Illuminated City}
+To make the city more pleasant, the municipality of Lund has decided to install light strips
+over the streets. The municipality prefers to have lighting in as many places as possible.
+There are many locations where light strips could be installed, and since the city council
+is busy, you have been asked to figure out where the light strips should be placed.
+
+\illustration{0.4}{ljusstrimmor}{Light strips in Lund, used with permission}
+
+The streets in Lund vary in width, which means that the light strips will need to be
+custom ordered. It is possible to custom order light strips in lengths of whole meters,
+which cost $x$ SEK per meter. To avoid appearing wasteful, the municipality demands that the
+average cost for each light strip ordered is at most $y$ SEK per light strip.
+
+The municipality has now provided you with a list of how long the light strips need to
+be in order to be installed in $N$ different locations in the city. Can you help them set up as many as possible?
+
+
+\section*{Input}
+The first line of the input contains the integer $N$ ($1 \le N \le 10^5$), the number of spots
+where we might install a light strip.
+
+The second line contains the integer $x$ ($1 \leq x \leq 30$), the cost in SEK of buying one whole meter of light strip.
+
+The third line contains the integer $y$ ($1 \le y \le 1000$), the highest average cost per light strip the
+municipality is willing to pay for.
+
+Afterwards, there will be a line with $N$ integers $L_1, L_2, \dots, L_n$ ($1<=L_i<=20$), where $L_i$ means that
+a light strip must be exactly $L_i$ meters to illuminate the $i$:th location.
+
+
+\section*{Output}
+Print an integer: the largest number of locations that can be illuminated by light strips within the municipalitys budget.
+
+\section*{Points}
+Your solution will be tested on several test case groups.
+To get the points for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $20$       & $L_i=10$ for all $i$ \\ \hline
+  $2$    & $20$       & $L_i=10$ or $20$ for all $i$ \\ \hline
+  $3$    & $20$       & $N \leq 500$ \\ \hline
+  $4$    & $40$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of sample 1}
+It is possible to buy the first 3 light strips.
+The average cost will then be $\frac{6+9+12}{3}=9$ SEK, which barely fits within the budget of at most $9$ SEK per light strip on average.

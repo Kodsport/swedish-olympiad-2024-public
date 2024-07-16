@@ -1,0 +1,145 @@
+\problemname{Maskroskaos}
+\noindent
+Innan Gösta dog av ålderdom kom vetenskapsmän på hur man kan göra människor odödliga. Hur detta gick till lämnas som en
+kluring till läsaren. Gösta har en äng med maskrosor. Efter lång väntan är den äntligen fullvuxen, och han kan nu skapa
+maskrosläsk med maskrosorna (se \textit{Maskrosor}). Intressant nog är alla maskrosor inte riktigt samma: han har kommit
+fram till att det finns $N$ olika arter av maskrosor i hans äng. Han vill nu självklart veta om vissa maskrosarter skapar
+godare läsk än andra. Efter en del möda har Gösta lyckats plocka exakt $2$
+stycken maskrosor av varje art. Precis när han skulle börja analysera de, så råkar han snubbla och blanda ihop alla
+maskrosor. Katastrof!
+
+Eftersom maskrosorna är väldigt lika visuellt kommer han behöva använda sin pollen-analys-maskin (PAM). 
+Denna fungerar genom att låta alla maskrosor i den blomma, och kan sedan analysera pollenet. Den kan då avgöra
+antalet unika arter maskrosor som finns i den. Den kan tyvärr inte avgöra om det finns en eller två av en viss art,
+eftersom mängden pollen kan variera väldigt mycket från maskros till maskros. Han har numrerat alla sina maskrosor
+från $1$ till $2N$. 
+
+För att använda maskinen kan du göra två saker:
+\begin{itemize}
+  \item Lägga in en maskros i maskinen.
+  \item Ta ut en maskros ur maskinen (som redan finns i den).
+\end{itemize}
+
+Efter att han lägger in eller tar ut en maskros ur maskinen får han direkt reda på antalet unika arter maskrosor
+som finns i den.
+Gösta vill nu ha din hjälp att använda maskinen för att hitta vilka par av maskrosor som är av samma art.
+Eftersom han är odödlig har han inte bråttom, men vill ändå bli färdig inom "rimlig" tid. Därför kan han acceptera
+att du använder den som mest en miljon ($10^6$) gånger.
+
+\section*{Implementation}
+Din lösning till problemet måste vara skriven i C++. Den ska inkludera filen \textbf{maskroskaos.h}. 
+Du ska \textbf{inte} skapa en main-funtkion. Istället ska du implementera funktionen\\
+
+\begin{itemize}
+  \item \texttt{void Solve(int N)}\\
+  Denna funktion kallas en gång för varje testfall.
+  \begin{itemize}
+    \item Parametern $N$ ($1 \leq N \leq 43000$) är antalet arter av maskrosor som Gösta plockat.
+  \end{itemize}
+  Ditt program kan använda följande funktioner för att lösa problemet.
+  \begin{itemize}
+    \item \texttt{int Query(int x)}\\
+    Där $x$ ($1 \leq X \leq 2N$) är indexet av en de $2N$ maskrosorna. Om $x$ inte finns i maskinen läggs den in. Om $x$ redan finns
+    i maskinen tas $x$ ut. Dess returvärde är antalet unika arter av maskrosor i den efter att $x$ lagts in eller tagits ut.
+    Om du anropar denna funktion mer än $10^6$ gånger eller anger ett $x$ som inte tillfredställer $1 \leq x \leq 2N$
+    får du \textbf{Wrong Answer}.
+    \item \texttt{int Answer(int a, int b)}\\
+    När du anropar denna funktionen hävdar du att maskrosorna med index $a$ och $b$ är av samma art. Om du gör något av följande händer
+    får du \textbf{Wrong Answer}.
+    \begin{itemize}
+      \item Om \texttt{Answer} anropas med samma par av maskrosor mer än en gång.
+      \item $1 \leq a,b \leq 2 \cdot N$ inte tillfredställs.
+      \item Maskrosorna med index $a$ och $b$ är av olika art.
+      \item Returnerar från \texttt{Solve} och du har inte anropat \texttt{Answer} exakt $N$ gånger. 
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\textbf{Notera:} funktionerna \texttt{Query} och \texttt{Answer} ska kallas på i funktionen \texttt{Solve}. (Se exempelkoden i \texttt{maskroskaos.cpp})
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $6$         & $N \leq 100$  \\ \hline
+  $2$    & $25$        & $N \leq 15000$, för varje par $a$,$b$ där $a$ och $b$ är av samma art gäller det att
+  $1 \leq a \leq N$ och $N+1 \leq b \leq 2N$. \\ \hline
+  $3$    & $9$         & $N \leq 15000$ \\ \hline
+  $4$    & $30$        & $N \leq 38000$ \\ \hline
+  $5$    & $5$         & $N \leq 39000$ \\ \hline
+  $6$    & $5$         & $N \leq 40000$ \\ \hline
+  $7$    & $5$         & $N \leq 41000$ \\ \hline
+  $8$    & $5$         & $N \leq 42000$ \\ \hline
+  $4$    & $10$        & $N \leq 43000$ \\ \hline
+\end{tabular}
+
+\section*{Testning av lösning}
+För att underlätta testningen av ditt program tillhandahåller vi ett exempelprogram och en exempeldomare. Dessa kan laddas ned
+vid attachments längst ned på sidan. 
+
+För att testa programmet kan du köra följande kommando:
+\begin{itemize}
+  \item g++ -o grader grader.cpp maskroskaos.cpp
+\end{itemize}
+
+Detta kommer skapa filen grader, som du sedan kör för att testa programmet. Notera att denna exempeldomare skiljer sig från
+domaren som används för uppgiften. Det är dock garanterat att den riktiga domaren \textbf{inte} är adaptiv. Detta innebär
+att svaret bestäms innan ditt program körs, och den kan inte ändra svaret under körningens gång. Ditt program får \textbf{inte}
+skriva eller läsa från standard input/output. Om du gör detta kommer du troligtvis få förvirrande fel.
+
+\section*{Indataformat för exempeldomaren}
+Exempeldomaren läser indata på följande format:
+\begin{itemize}
+  \item En rad med heltalet $N$.
+  \item $N$ rader som vardera innehåller heltalen $a$ och $b$ ($1 \leq a,b \leq 2N$). Detta innebär att maskrosorna med
+  index $a$ och $b$ är av samma art. 
+\end{itemize}
+
+\section*{Utdataformat för exempeldomaren}
+Om ditt program är rätt skriver den ut "Accepted. Queries: $q$", där $q$ är antalet gånger ditt program anropade \texttt{Query}.
+
+Om ditt program är inkorrekt skriver den ut "WA. $e$", där $e$ är felet ditt program gjorde. Om ditt program har flera
+fel kommer den skriva ut det första felet du gör.
+
+\section*{Exempel-interaktion}
+
+Betrakta följande indata till domaren:
+\begin{verbatim}
+3
+1 5
+2 4
+3 6
+\end{verbatim}
+
+En giltig interaktion som löser problem kan se ut som följande:
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|c|c|}
+      \hline
+      \textbf{Call} & \textbf{Return} \\
+      \hline
+      Solve(3) & (none) \\
+      \hline
+      Query(1) & 1 \\
+      \hline
+      Query(2) & 2 \\
+      \hline
+      Query(5) & 2 \\
+      \hline
+      Query(1) & 2 \\
+      \hline
+      Answer(1, 5) & (none) \\
+      \hline
+      Answer(2, 4) & (none) \\
+      \hline
+      Answer(3, 6) & (none) \\
+      \hline
+  \end{tabular}
+\end{table}
+
+

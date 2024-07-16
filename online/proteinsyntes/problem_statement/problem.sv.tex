@@ -1,0 +1,56 @@
+\problemname{Proteinsyntes}
+
+\noindent
+Latbo är väl känt att vara Sveriges lataste stad. Björn har haft som mål att vara latast i stan
+ända sedan han var liten. Igår kom han hela vägen till final i årets lathetstävling. Han var helt redo
+på att vinna, men blev totalkrossad när hans motståndare var för lat för att ens dyka upp.
+
+Detta var droppen för Björn och han har nu bestämt sig att använda sina medicinkunskaper för att
+utveckla ett botemedel mot lathet. För att göra detta behöver han syntetisera det magiska proteinet $T$.
+
+Eftersom han är för lat för att bestämma hur han ska göra detta själv ber han nu dig om hjälp att 
+hitta bästa sättet att konstruera protein $T$. Alla protein, inklusive protein $T$, kan representeras
+som en sträng med bokstäver mellan \texttt{a}-\texttt{z}. 
+Björn känner till hur han kan producera $M$ sorters protein. Det tar en dag att skapa ett av de $M$ proteinen,
+oavsett hur långa eller korta de är. Han har även redskap för att sätta ihop två protein. Till exempel
+kan han ta proteinerna \texttt{abc} och \texttt{ba} och sätta ihop dessa till antingen \texttt{abcba} eller
+\texttt{baabc}.
+
+Eftersom Björn vill producera protein $T$ så fort som möjligt vill han ha din hjälp att lista ut hur många
+dagar det kommer ta att producera den om han planerar sin tid optimalt. Tiden det tar att sätta ihop
+protein är försumbar, alltså behöver du bara räkna tiden det tar att producera protein.
+
+
+\section*{Indata}
+Den första raden i indatan innehåller heltalet $N$ ($1 \le N \le 10^5$), längden på protein $T$.
+
+Nästa rad innehåller en sträng av längd $N$, protein $T$.
+
+På raden därefter följer $M$ ($1 \le M \le 10^6$), antalet protein Björn kan tillverka.
+
+Därefter följer $M$ rader, som vardera innehåller en sträng. Denna sträng representerar ett protein han
+kan tillverka. Det är garanterat att den totala längden av de $M$ strängarna inte överstiger $10^6$.
+
+Alla strängar i indatan består av bokstäver \texttt{a}-\texttt{z}. Det är garanterat att Björn kan
+konstruera $T$ med hjälp av de $M$ strängar som Björn kan tillverka.
+
+\section*{Utdata}
+Skriv ut ett heltal: antalet dagar det tar för Björn att skapa protein $T$ om han spenderar sin tid optimalt.
+
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $10$       & $N \leq 20, M \leq 5$ \\ \hline
+  $2$    & $20$       & $N, M \leq 100$ \\ \hline
+  $3$    & $30$       & $M \leq 100$ \\ \hline
+  $4$    & $40$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall 1}
+Genom att skapa proteinet \texttt{abc} två gånger kan han sätta ihop de och skapa proteinet \texttt{abcabc}.

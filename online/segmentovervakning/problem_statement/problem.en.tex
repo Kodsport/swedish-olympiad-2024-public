@@ -1,0 +1,102 @@
+\problemname{Segment Monitoring}
+
+\noindent
+After successfully conquering all city-states in Kattago, the super-feline kingdom of 
+Katen and its leader Kattis seek better control over their conquered city-states, particularly in the state of Segby. 
+Segby consists of a single long line. Recently, rumors of rebellion have surfaced, 
+something that will not be tolerated. More specifically, they have identified that all suspicious houses 
+lie between $x_{min}$ and $x_{max}$, meaning the suspected houses are points $x$ on the number line that 
+satisfy $x_{min} \le x \le x_{max}$.
+
+\illustration{0.35}{kattIsWatching}{Kattis is watching.}
+
+To avoid a cat-astrophe, Kattis has asked the company Purrfect Segments Inc. to manufacture 
+different cameras that can monitor the entire street between $x_{min}$ and $x_{max}$ 
+(Kattis herself has realized the importance of surveillance after several attempts to attack a well-monitored wall).
+
+Purrfect Segments Inc. installs their cameras at specific paw-sitions so that each camera 
+has a unique serial number $s$, where camera $s$ can monitor a segment $[a_s,b_s]$ to purr-fection. 
+This means that the camera $s$ monitors all numbers $x$ on the number line such that $a_s \le x \le b_s$.
+
+The only problem is that the cameras are often vandalized since they closely resemble speed cameras. 
+When a camera is vandalized, it can no longer monitor its segment. To keep track of the suspected segment, 
+they will constantly need to install new cameras.
+
+Purrfect Segments Inc. now seeks your help for the next $Q$ days. Initially, there are no cameras 
+monitoring the street at all. Each morning, either a camera will be installed, or one will be vandalized. 
+As they want to appear even more efficient than the Lund municipality (see \textit{Illuminated City}), 
+they never want to activate more than two cameras in a single day.
+
+You are given information about which cameras will be installed and vandalized over the next $Q$ days. 
+Your task is to determine, for each day, whether it is possible to monitor the entire segment $[x_{min}, x_{max}]$ 
+by activating only one or two cameras. Note that at the beginning of each day, no camera is activated.
+
+
+\section*{Input}
+The first line of the input contains the integers $x_{min}$ and $x_{max}$ ($1 \leq x_{min} < x_{max} \leq 10^9$), 
+representing the segment where the suspected houses are located.
+
+The second line contains the integer $Q$ ($1 \le Q \le 2 \cdot 10^5$), 
+indicating the number of days in the test case.
+
+The following $Q$ lines start with either ``+'' if a camera is to be installed, or ``-'' if a camera has been vandalized:
+\begin{itemize}
+  \item ``+'': The line contains $3$ integers, $s$, $a$, and $b$ ($1\le s \le 10^6$, $0\le a < b \le 10^9$), 
+  indicating that a camera with serial number $s$ has been installed to monitor the segment $[a,b]$.
+  \item ``-'': The line contains the integer $s$, the serial number of the camera $s$ that has been vandalized.
+  It is guaranteed that the vandalized camera was installed.
+\end{itemize}
+
+All cameras have unique serial numbers and are not activated when installed.
+
+\section*{Output}
+Print $Q$ lines, where the $i$-th line is the answer for the $i$-th day.
+\begin{itemize}
+  \item If the segment with the suspicious houses can be monitored with $1$ camera, print $1$.
+  \item If it is not possible to monitor with $1$ camera but is possible with $2$, print $2$.
+  \item Otherwise, print $-1$.
+\end{itemize}
+
+
+\section*{Points}
+Your solution will be tested on several test case groups.
+To get the points for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $10$       & $Q \le 2$ \\ \hline
+  $2$    & $10$       & The answer is either $1$ or $-1$. \\ \hline
+  $3$    & $20$       & $Q \le 100$ \\ \hline
+  $4$    & $25$       & $Q \le 1000$ \\ \hline
+  $5$    & $35$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of sample 1}
+On the first day, camera with serial number ``1'' was installed on the segment $[2,3]$.
+There is no way to monitor the entire segment $[2,6]$ by activating any cameras, so the answer for the first day is ``-1''.
+
+On the second day, camera with serial number ``2'' was installed on the segment $[4,6]$.
+There is still no way to monitor the entire segment, since it activating cameras ``1'' and ``2'' would leave the segment between 3 and 4 unmonitored.
+Therefore, the answer for the second day is ``-1''.
+
+On the third day, camera with serial number ``2'' was vandalized.
+There is still no way to monitor the entire segment $[2,6]$, so the answer for the third day is ``-1''.
+
+On the fourth day, camera with serial number ``3'' was installed.
+By activating cameras ``1'' and ``3'' the segment $[2,7]$ is monitored, including the suspicious segment $[2,6]$.
+Since there is no way to monitor $[2,6]$ by activating only 1 camera, the answer for the fourth day is ``2''.
+
+
+\section*{Explanation of sample 3}
+On the first day, camera with serial number ``123'' was installed on the segment $[10,15]$.
+There is no way to monitor the entire segment $[10,20]$ by activating any cameras, so the answer for the first day is ``-1''.
+
+On the second day, camera with serial number ``234'' was installed.
+By activating cameras ``123'' and ``234'', the entire suspicious segment $[10,20]$ is monitored.
+Therefore, the answer for the second day is ``2''.
+
+On the third day, camera with serial number ``345'' was installed.
+By activating only camera ``345'', the entire suspicious segment $[10,20]$ is monitored.
+Therefore, the answer for the third day is ``1''.

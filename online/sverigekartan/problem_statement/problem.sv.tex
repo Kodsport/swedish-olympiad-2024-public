@@ -1,0 +1,72 @@
+\problemname{Sverigekartan}
+Vidar vill veta hur stort Sverige är. Efter mycket slit har han lyckats skjuta upp en satellit som kan ta ett flertal lågupplösta bilder av Sverige åt honom.
+Satellitens kamera är tyvärr väldigt dålig. Varje ruta i bilden kommer antingen bestå av ``\texttt{\#}'', vilket innebär att rutan innehåller land, eller
+``\texttt{.}'' om den innehåller vatten.
+
+Vidar är en enorm badkruka och anser därför att Sveriges landmassa endast är antalet landrutor man kan nå från Stockholm utan att simma.
+Mer exakt är det antalet rutor man kan nå från Stockholm genom att röra sig uppåt, höger, neråt eller vänster utan att någonsin befinna sig på en ruta som innehåller vatten.
+Notera att rutan som innehåller Stockholm, \textbf{\texttt{S}}, också räknas som land.
+
+Vidar vill nu ha din hjälp att skriva ett program som beräknar Sveriges storleken av landmassa givet en satellitbild där han markerat var Stockholm ligger med ett \textbf{\texttt{S}}.
+Därefter kommer han att vänta på att satelliten tar bilder från nya vinklar. Genom att kolla på de nya bilderna kommer han ibland fram till att en ruta som
+innan var vatten egentligen är land. När han matar in denna förändring i ditt program ska du då direkt svara med vad den nya landmassan är.
+
+
+\section*{Indata}
+Den första raden i indatan innehåller heltalet $R$ ($1 \le R \le 500$), antalet rader i Vidars bild.
+
+Nästa raden innehåller heltalet $C$ ($1 \le C \le 500$), antalet kolumner i Vidars bild.
+
+Raden därefter innehåller ett heltal $U$ ($0 \le U \le 100\,000$), antalet gånger Vidar ändrar en ruta från att vara vatten till land.
+
+Sedan följer $R$ rader som vardera innehåller $C$ bokstäver. Dessa beskriver satellitbilden Vidar utgår ifrån. Varje bokstav är antingen
+``\texttt{\#}'', ``\texttt{.}'' eller ``\textbf{\texttt{S}}''. Exakt en ruta kommer innehålla bokstaven \textbf{\texttt{S}}.
+
+Om $U$ inte är $0$ följer sedan $U$ rader. Varje rad innehåller två heltal $i,j$ ($1 \le i \le R$, $1 \le j \le C$), vilket innebär att rutan
+på den $i$:te raden och den $j$:te kolumnen ändras från att vara vatten till land. 
+
+\section*{Utdata}
+Skriv först ut ett heltal: Sveriges totala landmassa.
+
+Skriv sedan ut $U$ heltal: Sveriges totala landmassa efter varje gång Vidar ändrar bilden.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $20$       & $U=0$ och gruppen består av ett enda testfall, det som finns på vår affisch (\url{https://www.progolymp.se/2024/affisch.pdf}). \\ \hline
+  $2$    & $13$       & $R=1, U=0$ \\ \hline
+  $3$    & $9$        & $R=1$ \\ \hline
+  $4$    & $26$       & $U=0$ \\ \hline
+  $5$    & $13$       & $R,C \le 10$ \\ \hline
+  $6$    & $19$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall 1}
+Till en början går det att nå 8 landrutor från Stockholm. Eftersom Stockholm också räknas som land är Sveriges landmassa 9. Efter första uppdateringen ser rutnätet ut såhär:
+
+\noindent
+\begin{verbatim}
+  .#...#
+  .###..
+  .#S##.
+  ..##..
+  ......
+\end{verbatim}
+
+\noindent
+Eftersom man nu kan nå en ny ruta land blir svaret 10. Efter de kommande två uppdateringarna kan man inte nå det nya landet, så svaret förändras inte.
+Efter den sista uppdateringen kan man nå allt det nyligen skapade landet och svaret blir därmed 13. Kartan ser ut såhär:
+
+\noindent
+\begin{verbatim}
+  .#...#
+  .###..
+  .#S##.
+  ..###.
+  ....##
+\end{verbatim}

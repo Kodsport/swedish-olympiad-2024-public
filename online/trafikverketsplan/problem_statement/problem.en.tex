@@ -1,0 +1,56 @@
+\problemname{Trafikverket's Plan}
+
+\noindent
+During the winter, far too many accidents occur in Lönnköping due to icy roads.
+Because the municipality of Lönnköping wanted to appear even more efficient than the cat
+kingdom Katen's conquest (see \textit{Segment Monitoring}), their road network has very
+few roads. The $N$ houses only have $N-1$ roads between them in total. Each road directly
+connects two houses. If you are at a certain house, you can travel to another house using
+road connected to the house you are at. The network is also designed such that one can
+travel between every pair of houses by traversing one or more roads. The traffic department
+has devised a brilliant plan to reduce the number of accidents: they intend to make each road
+in the network one-way, so that everyone can commute to work in the morning. In the evening,
+they will simply reverse all directions so that everyone can return home.
+
+The only problem is that they are unsure whether or not their plan will work. What if some
+residents cannot get to work in the morning? The traffic department has compiled a list of
+where each resident lives and works and now wants you to determine, for each resident, whether
+they can commute to work given their new plan. Their plan consists of the description of
+the road network and the direction each road should have.
+
+\section*{Input}
+The first line of the input contains the integer $N$ ($1 \le N \le 3 \cdot 10^5$), the number of
+houses in Lönnköping.
+
+The following $N-1$ lines each contain the integers $a,b$ ($1 \leq a,b \leq N$, $a \neq b$),
+meaning that there is a one-way road from house $a$ to house $b$. It is
+guaranteed that the the undirected edges form a tree.
+
+The next line contains the integer $Q$ ($1 \leq Q \leq 10^5$), the number of residents of Lönnköping.
+
+Afterwards, $Q$ lines following, each containing the integers $H_i,W_i$ ($1 \leq H_i,W_i \leq N$),
+the index of the house where resident $i$ lives and works respectively.
+
+\section*{Output}
+For each resident, print ``ja'' if they can get to work under the new plan. Otherwise,
+print ``nej''. Print these in the same order of people as in the input.
+
+\section*{Points}
+Your solution will be tested on several test case groups.
+To get the points for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $10$       & $N, Q \leq 1000$ \\ \hline
+  $2$    & $10$       & $W_i=1$ for all $i$. \\ \hline
+  $3$    & $10$       & $|a-b|=1$ for all pairs of $(a,b)$ such that there exists a road between $a$ and $b$, that is to say that the tree is a line. \\ \hline
+  $4$    & $25$       & For all pairs $(a,b)$ such that there exists a road between $a$ and $b$, it holds that $\lfloor\frac{max(a,b)}{2} \rfloor=min(a,b)$.
+  In other words, the tree is a full binary tree. \\ \hline
+  $5$    & $15$       & $N \leq 50\,000$ \\ \hline
+  $6$    & $30$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Samples}
+Sample 3 satisfies the constraints for subtask 3 and sample 4 satisfies the constraints for subtask 4.

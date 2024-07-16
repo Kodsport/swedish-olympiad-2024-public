@@ -1,0 +1,89 @@
+\problemname{Long Bus Trip}
+\noindent
+The travelling pillow round the neck, headphones on, and the music turned up to the highest volume.
+Now everyone is ready for the long bus journey down to the wonderful "Sunset Valley"!
+
+But oh no! Everyone on the bus seems to have forgotten to bring water,
+and they will become extremely thirsty during the long bus journey.
+But luckily, you own the bus company,
+and you have installed a water tank that all passengers and the driver can drink from.
+
+The bus starts moving at second $0$, and arrives at "Sunset Valley" at second $X$.
+During the journey, there are $N$ water stations where the bus's water tank can be filled.
+The bus will be at the $i$-th water station $(1 \leq i \leq N)$ at second $S_i$.
+
+Initially, there is no water in the water tank, but there is also a water station where the bus starts.
+The cost to fill the water tank is $W$ SEK per liter, regardless of which station the water is filled from.
+We also assume that the time to fill the water tank is negligible.
+
+Initially, all $M$ passengers are on the bus. Passengers are indexed from $1$ to $M$.
+The $j$-th passenger $(1 \leq j \leq M)$ needs $1$ liter of water at second $D_j$.
+If the passenger has drunk water, they will need to drink water again after $T$ seconds.
+Thus, passenger $j$ will need 1 liter of water at times $D_j + k\cdot T$ $(k = 0,1,2,\ldots)$.
+Note that $T$ will be the same for all passengers.
+
+If the water tank is empty when a passenger needs water, the passenger will demand to get off the bus.
+If the passenger leaves before reaching "Sunset Valley", you must refund their bus ticket,
+which costs $C_j$ SEK.
+
+The driver also needs to drink water and requires it at seconds $k\cdot T$ $(k = 0,1,2,\ldots)$.
+If the water tank is empty when the driver wants water, the bus will stop running, and no one will be able to go to "Sunset Valley".
+
+No two passengers will need water at the same time. When the bus arrives at a water station, neither passengers nor the driver will need water.
+
+By determining how much water is filled in the water tank, we want to minimize the sum of the costs from water and refunds, 
+while still being able to drive to "Sunset Valley". Can you calculate the minimum amount of money you can spend and still be able to go there?
+
+
+\section*{Input}
+\noindent
+The first line contains the integers $X$, $N$, $M$, $W$, and $T$ 
+($1 \leq T \leq X \leq 10^{12}, 1 \leq N,M \leq 2\cdot 10^5, 1 \leq W \leq 10^6$). 
+These represent that the bus will arrive at the destination at second $X$, there are $N$ water stations, 
+$M$ passengers on the bus, the cost of water is $W$ SEK per liter, and the time interval 
+for all passengers and the driver to require water will be $T$ seconds.
+
+Then follows $N$ lines, where the $i$-th ($1 \leq i \leq N$) line contains an integer $S_i$ $(1 \leq S_i \leq X-1)$, 
+the second at which the bus will arrive at the $i$-th water station.
+
+The next $M$ lines contain the integers $D_j$ and $C_j$ ($1 \leq D_j \leq T-1$, $1 \leq C_i \leq 10^9$), 
+representing that the $j$th passenger will first require water at second $D_j$, and the cost to refund the $j$-th passenger is $C_j$.
+
+\section*{Output}
+\noindent
+Print an integer: the minimum cost to be able to drive the bus to "Sunset Valley".
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points. 
+Each test group contains a set of test cases. 
+To get the points for a test group you need to solve all test cases in the test group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $16$         & $N,M \leq 8$  \\ \hline
+  $2$    & $30$         & $N,M \leq 100$ \\ \hline
+  $3$    & $24$         & $N,M \leq 2000$ \\ \hline
+  $4$    & $30$         & No additional constraints. \\ \hline
+\end{tabular}
+
+
+
+\section*{Explanation of sample 1:}
+If we fill the water tank with 7 liters of water before we start driving, and then add 4 liters at the first water station, we get the following events:
+
+\begin{itemize}
+  \item The bus starts moving with 7 liters of water.
+  \item The driver, passenger 1, 2, 3, and 4 drink 1 liter of water each at seconds 0, 1, 2, 4, and 6 respectively. Now the bus has only 2 liters of water left.
+  \item The driver and passenger 1 drink 1 liter of water each at seconds 7 and 8. Now there is 0 liters of water left.
+  \item At second 9, passenger 2 wants to drink water, but there is none left. Therefore, passenger 2 leaves.
+  \item At second 10, the water tank is filled with 4 liters of water, as we are at the first water station. Now there are 4 liters of water in the tank.
+  \item Passengers 3, 4, the driver, and passenger 1 drink 1 liter each at seconds 11, 13, 14, and 15. Now there are 0 liters of water left.
+  \item At second 18, passenger 3 wants water, but there is none. Therefore, passenger 3 leaves.
+  \item At second 19, the bus arrives at the destination.
+\end{itemize}
+
+A total of 11 liters of water were bought, costing 88 SEK. Only passengers 2 and 3 left and demanded a refund, costing 15 SEK. We pay a total of 103 SEK.
+
+It is impossible to get to "Sunset Valley" for less than 103 SEK.

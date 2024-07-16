@@ -1,0 +1,71 @@
+\problemname{The Paw-litical Game}
+\noindent
+The country Gattekatt has a very unusual shape. It is extremely elongated, resulting in its $N$ cities each occupying an interval of the country.
+The cities are numbered from $1$ to $N$, from left to right. Each city has a population of cats. Interestingly, the number of 
+cats is always equal to $2^k$ for some integer $k$ (there are a lot of cats in Gattekatt).
+To prepare the country for a potential rat invasion, the government wants as many cities as possible to unite.
+Unfortunately, the cities are very picky about who they are willing to cooperate with. For two cities $a$ and $b$ to unite, the following conditions are required:
+
+\begin{itemize}
+  \item The cities $a$ and $b$ are adjacent. 
+  \item The number of cats in city $a$ and city $b$ is exactly the same. This is because the number of cats in the city is
+  directly correlated with the city's political influence, and a city won't consider cooperating with a city it perceives as having less political influence.
+\end{itemize}
+
+When two adjacent cities $a$ and $b$, each with $2^k$ cats decide to unite, they form a single city with a cat population of $2^{k+1}$.
+The new city can then potentially unite with the city to the left of $a$ or the city to the right of $b$.
+
+Top politicians from Gattekatt now want your help in calculating the minimum number of cities that can remain in the end if
+the cities are united in an optimal order.
+
+\section*{Input}
+The first line of input contains the integer $N$ ($1 \leq N \leq 10^6$).
+
+The second line of input contains $N$ integers $k_1, k_2, \dots, k_N$ ($1 \leq k_i \leq 10^9$).
+Each $k_i$ means that city $i$ has $2^{k_i}$ cats as inhabitants. 
+
+\section*{Output}
+Print an integer: the least number of cities that can remain if the cities are united in an optimal order.
+
+\section*{Points}
+Your solution will be tested on several test case groups.
+To get the points for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $7$       & $N \leq 10, k_i \leq 30$ \\ \hline
+  $2$    & $14$      & $N \leq 200, k_i \leq 30$ \\ \hline
+  $3$    & $15$      & $N \leq 2000, k_i \leq 30$ \\ \hline
+  $4$    & $9$       & $N \leq 2000$ \\ \hline
+  $5$    & $37$      & $k_i \leq 30$ \\ \hline
+  $6$    & $18$      & No additional constraints. \\ \hline
+\end{tabular}
+
+
+\section*{Explanation of sample 1}
+
+First, we compute the population of cats for each city ($2^{k_i}$).
+\begin{verbatim}
+4 4 8 8 8
+\end{verbatim}
+Here, we will show an optimal sequence of cities merging.
+The cities furthest to the right are merged into a single city with 16 cats:
+\begin{verbatim}
+4 4 8 16
+\end{verbatim}
+Afterwards, the 4s are merged into a single city with 8 cats:
+\begin{verbatim}
+8 8 16
+\end{verbatim}
+Afterwards, the 8s are merged into a single city with 16 cats:
+\begin{verbatim}
+16 16
+\end{verbatim}
+Finally, we can merge the 16s into a singly city with 32 cats:
+\begin{verbatim}
+32
+\end{verbatim}
+
+Because there is only a single city left, the answer is 1.

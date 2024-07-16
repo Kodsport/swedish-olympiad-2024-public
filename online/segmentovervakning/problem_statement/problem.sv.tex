@@ -1,0 +1,97 @@
+\problemname{Segmentövervakning}
+
+\noindent
+Efter att ha lyckats erövra alla stadsstater i Kattago, vill det övermänskliga kattriket Katen
+och dess ledare Kattis ha bättre kontroll över sina erövrade stadsstater, särskilt i staten Segby.
+Segby består av en enda lång linje. Nyligen
+viskas det om uppror, något som inte kommer tolereras. Mer specifikt har de kommit fram till
+att alla misstänkta hus ligger mellan $x_{min}$ och $x_{max}$, alltså är de misstänkta husen
+punkter $x$ på tallinjen som uppfyller $x_{min} \le x \le x_{max}$.
+
+\illustration{0.35}{kattIsWatching}{Kattis is watching.}
+
+För att undivka kat(t)astrof har Kattis bett företaget Purrfect Segments Inc. att tillverka
+olika kameror som kan övervaka hela gatan mellan $x_{min}$ och $x_{max}$ (Kattis har själv insett hur viktigt det är med övervakare 
+efter flera försök av att attackera en välövervakad mur). 
+Purrfect Segments Inc. installerar sina kameror på specifika paw-sitioner så att varje kamera har ett unikt serienummer $s$, 
+där kameran $s$ kan övervaka ett segment $[a_s,b_s]$ till purr-fektion. 
+Detta innebär att kameran övervakar alla tal $x$ på tallinjen sådana att $a_s \le x \le b_s$. 
+Det enda problemet är att kamerorna ofta blir vandaliserade, då de är väldigt lika fartkameror.
+När en kamera vandaliserats kan den inte övervaka sitt segment längre. För att kunna hålla
+koll på det misstänkta segmentet kommer de alltså konstant att behöva installera nya kameror.
+
+Purrfect Segments Inc. vill nu ha din hjälp de kommande $Q$ dagarna. Från början finns det inga kameror som övervakar gatan alls. 
+Varje morgon kommer antingen en kamera installeras, eller så kommer en vandaliseras. 
+Eftersom de vill verka ännu effektivare än Lunds kommun (se \textit{Stad i ljus}) vill de aldrig aktivera fler än två
+kameror under en dag. 
+
+Du får givet vilka kameror som installeras och vandliseras de kommande $Q$ dagarna, 
+och din uppgift är att för varje dag räkna ut om det går att övervaka hela segmentet $[x_{min}, x_{max}]$ genom att endast aktivera en eller två kameror. 
+Notera att i början av varje dag är ingen kamera aktiverad. 
+
+
+\section*{Indata}
+Den första raden i indatan innehåller heltalen $x_{min}$ och $x_{max}$ ($1 \leq x_{min} < x_{max} \leq 10^9$),
+segmentet de misstänkta husen ligger på.
+
+Den andra raden innehåller heltalet $Q$ ($1 \le Q \le 2 \cdot 10^5$), antalet dagar i testfallet.
+
+De följande $Q$ raderna börjar antingen med ``+'' ifall en kamera ska installeras, eller ``-'' ifall en kamera vandaliserats:
+\begin{itemize}
+  \item ``+'': Raden innehåller $3$ heltal, $s$, $a$ och $b$ ($1\le s \le 10^6$, $0\le a < b \le 10^9$), 
+  vilket innebär att en kamera med serienummer $s$ har installerats som kan övervaka segmentet $[a,b]$.
+  \item ``-'': Raden innehåller heltalet $s$, serienumret på kameran $s$ som vandaliserats.
+  Det är garanterat att kameran som vandaliserats var installerad.
+\end{itemize}
+
+Alla kameror har ett unikt serienummer, och en kamera är inte aktiverad när den blir installerad.
+
+\section*{Utdata}
+Skriv ut $Q$ rader, där den $i$:te raden är svaret till den $i$:te dagen.
+\begin{itemize}
+  \item Om segmentet kan övervakas med $1$ kamera, skriv ut $1$.
+  \item Om det inte går att övervaka med $1$ kamera, men går med $2$, skriv ut $2$.
+  \item Annars, skriv ut $-1$.
+\end{itemize}
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $10$       & $Q \le 2$ \\ \hline
+  $2$    & $10$       & Svaret är antingen $1$ eller $-1$. \\ \hline
+  $3$    & $20$       & $Q \le 100$ \\ \hline
+  $4$    & $25$       & $Q \le 1000$ \\ \hline
+  $5$    & $35$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall 1}
+Den första dagen har kameran med serienummer ``1'' installerats på segmentet $[2,3]$. 
+Det finns inget sätt att övervaka hela segmentet $[2,6]$ genom att aktivera några kameror, därför är svaret för den första dagen ``-1''.
+
+Den andra dagen har kameran med serienummer ``2'' installerats på segmentet $[4,6]$.
+Det finns fortfarande inget sätt att övervaka hela segmentet. Ifall vi aktiverar kamera ``1'' och ``2'', så övervakar vi inte gatan mellan $3$ och $4$. 
+Därför är svaret för den andra dagen ``-1''.
+
+Den tredje dagen vandaliserades kameran med serienummer ``2''.
+Det finns fortfarande inget sätt att övervaka hela segmentet $[2,6]$, därför är svaret för den tredje dagen ``-1''.
+
+Den fjärde dagen installerades kameran med serienummer ``3''.
+Genom att aktivera kamera ``1'' och ``3'' så övervakas segmentet $[2,7]$, vilket inkluderar det misstänkta segmentet $[2,6]$.
+Eftersom det inte finns något sätt att övervaka $[2,6]$ genom att endast aktivera $1$ kamera, så är svaret för den fjärde dagen ``2''.
+
+\section*{Förklaring av exempelfall 3}
+Den första dagen har kameran med serienummer ``123'' installerats på segmentet $[10,15]$. 
+Det finns inget sätt att övervaka hela segmentet $[10,20]$ genom att aktivera några kameror, därför är svaret för den första dagen ``-1''.
+
+Den andra dagen installerades kameran med serienummer ``234''.
+Genom att aktivera kamera ``123'' och ``234'' så övervakas hela det hemliga segmentet $[10,20]$.
+Därför är svaret för den andra dagen ``2''.
+
+Den andra dagen installerades kameran med serienummer ``345''.
+Genom att endast aktivera kamera ``345'' så övervakas hela det hemliga segmentet $[10,20]$.
+Därför är svaret för den tredje dagen ``1''.

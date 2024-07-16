@@ -1,0 +1,55 @@
+\problemname{Protein Synthesis}
+
+\noindent
+Latbo is well known to be the laziest city in Sweden. Björn has had the goal of being the
+laziest in town since he was little. Yesterday, he made it all the way to the final in
+this year's laziness competition. He was fully prepared to win but was completely crushed
+when his opponent was too lazy to even show up.
+
+This was the last straw for Björn, and he has now decided to use his medical knowledge to
+develop a cure for laziness. To do this, he needs to synthesize the magical protein $T$.
+
+Since he is too lazy to determine how to do this himself, he is now asking for your help in
+finding the best way to construct protein $T$. All proteins, including protein $T$, can be
+represented as a string of letters from \texttt{a}-\texttt{z}. Björn knows how to produce
+$M$ types of proteins. It takes one day to create one of these $M$ proteins, regardless of how
+long or short they are. He also has tools to combine two proteins. For example, he can take the
+proteins \texttt{abc} and \texttt{ba} and combine them into either \texttt{abcba} or \texttt{baabc}.
+
+Since Björn wants to produce protein $T$ as quickly as possible, he wants your help in figuring
+out how many days it will take to produce it if he spends his time optimally. The time it takes to
+combine proteins is negligible, so you only need to consider the time it takes to produce the proteins.
+
+
+\section*{Input}
+The first line of the input contains the integer $N$ ($1 \le N \le 10^5$), the length of protein $T$.
+
+The next line contains a string of length $N$, representing protein $T$.
+
+The next line contains $M$ ($1 \le M \le 10^6$), the number of proteins Björn can manufacture.
+
+Afterwards, $M$ lines follow, each containing a string. This string represents a protein he can produce.
+It is guaranteed that the total length of the $M$ strings does not exceed $10^6$.
+
+All strings in the input consist of letters \texttt{a}-\texttt{z}. It is guaranteed that Björn can
+synthesize $T$ by only using the $M$ proteins Björn can manufacture.
+
+\section*{Output}
+Print an integer: the number of days it takes for Björn to create protein $T$ if he spends his time optimally.
+
+\section*{Points}
+Your solution will be tested on several test case groups.
+To get the points for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $10$       & $N \leq 20, M \leq 5$ \\ \hline
+  $2$    & $20$       & $N, M \leq 100$ \\ \hline
+  $3$    & $30$       & $M \leq 100$ \\ \hline
+  $4$    & $40$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of sample 1}
+By creating the protein \texttt{abc} twice, he can combine them to create protein \texttt{abcabc}.

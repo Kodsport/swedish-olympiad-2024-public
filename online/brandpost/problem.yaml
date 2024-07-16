@@ -1,0 +1,8 @@
+author: Erik Hedin, Harry Zhang
+source: Programmeringsolympiadens onlinekval 2024
+license: cc by-sa
+type: scoring
+grading:
+  show_test_data_groups: true
+limits:
+  time_multipliers: 1

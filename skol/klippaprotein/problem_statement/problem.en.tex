@@ -1,0 +1,57 @@
+\problemname{Cutting Proteins}
+\noindent
+
+Your friend Björn has recently started a large chemistry experiment with the
+goal of creating a secret protein. All proteins are described with strings
+of letters from \texttt{a}-\texttt{z}, for example, \texttt{bcaa} and
+\texttt{hello}. He needs to create several so-called \textit{pure} proteins.
+These are proteins consisting of copies of the same letter. To do this, he has
+microscopic scissors called CRISPR. With these, he can remove up to $K$
+adjacent letters. In other words, he can choose an interval with up to $K$
+letters to cut out. If a protein is divided into two parts when it is cut,
+these parts will then be joined together where they were cut.
+
+Since he is very lazy, he wants your help to write a program that calculates
+the minimum number of times he needs to cut a specific protein to make it pure.
+Note that the protein \textbf{must not} become an empty string, because in that
+case it can no longer be used for chemistry.
+
+\section*{Input}
+The first line of input contains a string $P$ ($1 \leq |P| \leq 50$), the protein
+that Björn wants to make pure. $P$ only consists of characters from \texttt{a}-\texttt{z}.
+
+The next line contains the integer $K$ ($1 \leq K \leq |P|$), the number of characters
+that Björn can remove in each cut.
+
+\section*{Output}
+Print an integer: the smallest number of cuts Björn needs to make in order to make the protein pure.
+
+\section*{Points}
+Your solution will be tested on several test case groups.
+To get the points for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $20$       & $K=1$ \\ \hline
+  $2$    & $20$       & The protein only consists of the characters \texttt{a} and \texttt{b}. \\ \hline
+  $3$    & $60$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of samples}
+
+Sample $1$: one optimal way is to first cut the characters \texttt{pe}.
+This results in the string \texttt{exemlfall}. \\
+We can then cut away \texttt{fa}, resulting in \texttt{exemlll}. \\
+Finally, we cut away \texttt{exem} and are left with \texttt{lll}, a pure protein. 
+
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{sample2.PNG}
+    \\The picture shows the solution to sample 2. If we cut away all \texttt{b}
+    in the way that the picture describes, the protein becomes pure in two cut.
+  
+\end{figure}

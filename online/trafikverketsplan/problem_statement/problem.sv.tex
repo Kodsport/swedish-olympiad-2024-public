@@ -1,0 +1,57 @@
+\problemname{Trafikverkets plan}
+
+\noindent
+Under vinterhalvåret sker det på tok för många krockar i Lönnköping på grund av hala vägar. 
+Eftersom Lönnköpings kommun ville verka ännu effektivare än kattriket Katens erövring (se \textit{Segmentövervakning})
+har deras vägnätverk endast ett fåtal vägar. Mellan de $N$ husen finns endast $N-1$ vägar.
+Varje väg går direkt mellan två hus. Om du befinner dig vid ett visst hus kan du åka till vilken
+annan av vägarna den är kopplad till som helst. Nätverket är dessutom konstruerat så att
+man kan ta sig mellan varje par av hus genom att färdas längs med en eller flera vägar.
+Trafikverket har nu en briljant plan för att minska antalet krockar: de tänker enkelrikta
+varje väg i vägnätverket, så att alla kan ta sig till jobbet på morgonen. På kvällen
+kommer de att vända på alla riktningar så att alla kan ta sig hem. 
+
+Det enda problemet är att de inte vet om deras plan kommer att funka. Tänk om någon invånare
+inte kan ta sig till jobbet på morgonen? Trafikverket har samlat ihop en lista av var varje
+invånare bor och jobbar, och vill nu att du för varje invånare ska avgöra om de kan ta sig
+till jobbet givet deras nya plan. Deras plan består alltså av beskrivningen av vägnätverket och
+vilken riktning varje väg riktar sig åt.
+
+\section*{Indata}
+Den första raden i indatan innehåller heltalet $N$ ($1 \le N \le 3 \cdot 10^5$), antalet hus
+som finns i Lönnköping.
+
+De följande $N-1$ raderna innehåller vardera heltalen $a,b$ ($1 \leq a,b \leq N$, $a \neq b$),
+vilket betyder att det finns en riktad väg från hus $a$ till hus $b$. Det är garanterat
+att om vägarna var oriktade hade man kunnat färdas mellan varje par av hus endast genom att använda
+vägarna.
+
+Därefter följer en rad som innehåller heltalet $Q$ ($1 \leq Q \leq 10^5$), antalet invånare i
+staden.
+
+De följande $Q$ raderna innehåller vardera heltalen $H_i,W_i$ ($1 \leq H_i,W_i \leq N$), vilket hus
+den $i$:te personen bor i respektive vilket hus de jobbar i.
+
+\section*{Utdata}
+För varje person, skriv ut ``ja'' om de kan ta sig till jobbet under den nya planen, annars
+``nej''. Skriv ut dessa i samma ordning som indatan.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $10$       & $N, Q \leq 1000$ \\ \hline
+  $2$    & $10$       & $W_i=1$ för alla $i$. \\ \hline
+  $3$    & $10$       & $|a-b|=1$ för alla par av $(a,b)$ där det finns en väg mellan $a$ och $b$, det vill säga är trädet en linje. \\ \hline
+  $4$    & $25$       & För alla par av $(a,b)$ där det finns en väg mellan $a$ och $b$, gäller det att $\lfloor\frac{max(a,b)}{2} \rfloor=min(a,b)$.
+  Med andra ord är trädet ett fullt binärt träd. \\ \hline
+  $5$    & $15$       & $N \leq 50\,000$ \\ \hline
+  $6$    & $30$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Exempelfall}
+Exempelfall 3 uppfyller kraven för grupp 3 och exempelfall 4 uppfyller kraven för grupp 4.

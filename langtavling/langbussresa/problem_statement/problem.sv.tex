@@ -1,0 +1,89 @@
+\problemname{Lång Bussresa}
+\noindent
+Resekudden runt halsen, hörlurarna på, och musiken på högsta volym. 
+Nu är alla redo inför den långa bussresan ner till den underbara ``Sunset Valley''!
+
+Men oj! Alla på bussen verkar ha glömt att ta med sig vatten, 
+och kommer att bli extremt törstiga under den långa bussresan.
+Men som tur är, är det du som äger i bussföretaget, 
+och du har installerat en vattentunna som alla passangerare och chaffören kan dricka vatten ifrån.
+
+Bussen börjar att åka vid sekund $0$, och är framme vid ``Sunset Valley'' vid sekund $X$.
+Under resan finns det $N$ vattenstationer där man kan fylla bussens vattentunna med vatten. 
+Bussen kommer att vara vid den $i$:te vattenstationen $(1 \leq i \leq N)$ vid sekund $S_i$.
+
+Från början finns inget vatten i vattentunnan, men det finns även en vattenstation där bussen börjar åka ifrån.
+Kostnaden att fylla på vatten i vattentunnan är $W$ kr per liter, oavsett från vilken position man fyller på vatten.
+Vi antar även att vi kan tiden att fylla på vattentunnan är så liten att det försummas.
+
+Från början sitter alla $M$ passagerare på bussen. Passagerarna är indexerade från $1$ till $M$.
+Den $j$:te passageraren $(1 \leq j \leq M)$ behöver $1$ liter vatten vid sekund $D_j$. 
+Om passageraren har druckit vatten, kommer den att behöva dricka vatten igen om $T$ sekunder. 
+Alltså kommer passagerare $j$ behöva 1 liter vatten vid tiderna $D_j + k\cdot T$ $(k = 0,1,2,\ldots)$.
+Notera att $T$ kommer vara samma för alla passagerare.
+
+Om vattentunnan inte har vatten när en passagerare behöver vatten, kommer passageraren att kräva att gå av bussen.
+Om passageraren lämnar innan att den har kommit fram till ``Sunset Valley'', så måste du återbetala deras bussbiljett,
+som kostar $C_j$ kr.
+
+Chaffören behöver också dricka vatten, och kräver att få dricka vatten vid sekunderna $k\cdot T$ $(k = 0,1,2,\ldots)$. 
+Om vattentunnan inte har vatten när Chaffören vill ha vatten, då slutar bussen köra, och ingen kommer kunna åka till ``Sunset Valley''.
+
+Inga två passagerare kommer behöva vatten samtidigt. När bussen är framme vid en vattenstation, kommer varken passagerare eller chaffören behöva vatten.
+
+Genom att bestämma hur mycket vatten som fylls på i vattentunnan, vill vi minimera summan av kostnadenerna från
+vatter och återbetalningen, och samtidigt kunna köra till ``Sunset Valley''. Kan du beräkna hur mycket pengar som du kan spendera som minst och ändå kunna åka till ?
+
+%Alla passagerare är så taggade att få åka till ``Sunset Valley'', och ingen vill gå av vid någon annan station. 
+
+
+
+
+
+\section*{Indata}
+Den första raden innehåller heltalen $X$, $N$, $M$, $W$ och $T$ ($1 \leq T \leq X \leq 10^{12}, 1 \leq N,M \leq 2\cdot 10^5, 1 \leq W \leq 10^6$). 
+Dessa innebär att bussen kommer att vara framme vid destinationen vid sekund $X$, att det finns $N$ vattenstationer, $M$ passagerare i bussen, kostnaden för vatten är $W$ kr per liter, 
+och tidsintervallet för alla passagerare och chaffören att kräva vatten kommer att vara $T$ sekunder.
+
+Därefter följer $N$ rader, där den $i$:te ($1 \leq i \leq N$) raden innehåller ett heltal $S_i$ $(1 \leq S_i \leq X-1)$, sekunden som bussen kommer att
+vara framme vid den $i$:te vattenstationen. 
+
+De kommande $M$ raderna innehåller heltalen $D_j$ och $C_j$ ($1 \leq D_j \leq T-1$, $1 \leq C_i \leq 10^9$), vilket representerar
+att den $j$:te passageraren kommer för första gången kräva vatten vid sekund $D_j$, och kostnaden att återbetala till den $j$:te passageraren är $C_j$.
+
+\section*{Utdata}
+Skriv ut ett heltal: den minsta kostanden för att kunna köra bilen till ``Sunset Valley''.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $16$         & $N,M \leq 8$  \\ \hline
+  $2$    & $30$         & $N,M \leq 100$ \\ \hline
+  $3$    & $24$         & $N,M \leq 2000$ \\ \hline
+  $4$    & $30$         & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall 1:}
+Om vi fyller på 7 liter av vatten i vattentunnan innan vi börjar åka, och sedan 4 liter vid den första vattenstationen får vi följande händelser:
+
+\begin{itemize}
+  \item Bussen börjar åka och har 7 liter vatten.
+  \item Chaffören, passagerare 1,2,3,4 dricker 1 liter vatten var vid sekunderna 0,1,2,4 respektive 6. Nu har bussen endast 2 liter vatten kvar.
+  \item Chaffören och passageraren 1 dricker 1 liter vatten var vid sekunderna 7 och 8. Nu finns det 0 liter vatten kvar.
+  \item Vid sekund 9 vill passagerare 2 dricka vatten, men det finns inget vatten kvar. Därför lämnar passagerare 2.
+  \item Vid sekund 10 fylls vattentunnan med 4 liter vatten, eftersom vi är vid den första vattenstationen. Nu finns 4 liter vatten i vattentunnan.
+  \item Passagerarna 3, 4, chaffören och passagerare 1 dricker 1 liter var vid sekunderna 11, 13, 14, 15. Nu finns 0 liter vatten kvar.
+  \item Vid sekund 18 vill passagerare 3 ha vatten, men det finns inget. Därför lämnar passagerare 3.
+  \item Vid sekund 19 är bussen framme vid destinationen.
+\end{itemize}
+
+Totalt köptes 11 liter vatten, vilket kostar 88 kr. Endast passagerarna 2 och 3 lämnade och krävde återbetalning, vilket kostar 15 kr.
+Vi betalar totalt 103 kr.
+
+Det är omöjligt att kunna ta sig till ``Sunset Valley'' kostar mindre än 103 kr. 
+

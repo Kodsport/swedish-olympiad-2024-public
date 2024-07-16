@@ -1,0 +1,72 @@
+\problemname{Map of Sweden}
+Vidar wants to know how large Sweden is. After a lot of effort, he has managed to launch a satellite into the atmosphere that can take several low-resolution
+images of Sweden for him. Unfortunately, the satellite's camera is very poor. Each square in the image will either consist of ``\texttt{\#}'',
+which means the square contains land, or ``\texttt{.}'' if it contains water.
+
+Vidar is a huge scaredy-cat when it comes to swimming, so in his opinion, Sweden's landmass is only the number of land squares that can be
+reached from Stockholm without ever swimming. More precisely, it is the number of squares that can be reached from Stockholm by moving upward,
+rightward, downward, or leftward without ever walking over a square that contains water. Note that the square containing Stockholm,
+\textbf{\texttt{S}}, also counts as land.
+
+Vidar now wants your help to write a program that calculates Sweden's landmass given a satellite image where he has marked the location of
+Stockholm with an \textbf{\texttt{S}}. Then, he will wait for the satellite to take pictures from new angles. By looking at the new images,
+he sometimes realizes that a square that used to be water is actually land. When he enters this change into your program, you should
+immediately print new landmass.
+
+\section*{Input}
+The first line of the input contains an integer $R$ ($1 \le R \le 500$), the number of rows in Vidar's image.
+
+The next line contains an integer $C$ ($1 \le C \le 500$), the number of columns in Vidar's image.
+
+The next line contains an integer $U$ ($0 \le U \le 100,000$), the number of times Vidar changes a square from being water to land.
+
+Then follow $R$ lines, each containing $C$ letters, describing the satellite image Vidar is working with. Each letter is either
+``\texttt{\#}'', ``\texttt{.}'' or ``\textbf{\texttt{S}}''. Exactly one square will contain the letter \textbf{\texttt{S}}.
+
+If $U$ is not 0, $U$ lines will follow. Each one will contain two integers $i, j$ ($1 \le i \le R$, $1 \le j \le C$),
+which means the square in the $i$-th row and $j$-th column is changed from water to land.
+
+\section*{Output}
+First, print an integer: Sweden's total landmass.
+Then print $U$ integers: Sweden's total landmass after each time Vidar changes the image.
+
+\section*{Points}
+Your solution will be tested on several test case groups.
+To get the points for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $20$       & $U=0$ and the subtask consist of a single testcase, the one on our poster (\url{https://www.progolymp.se/2024/affisch.pdf}). \\ \hline
+  $2$    & $13$       & $R=1, U=0$ \\ \hline
+  $3$    & $9$        & $R=1$ \\ \hline
+  $4$    & $26$       & $U=0$ \\ \hline
+  $5$    & $13$       & $R,C \le 10$ \\ \hline
+  $6$    & $19$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of sample 1}
+At first, it's possible to reach 8 land squares from Stockholm. Since Stockholm is also counted as land, Sweden's landmass is 9. After the first update, the grid looks like this:
+
+\noindent
+\begin{verbatim}
+  .#...#
+  .###..
+  .#S##.
+  ..##..
+  ......
+\end{verbatim}
+
+\noindent
+Since you can now reach a new piece of land, the answer becomes 10. After the next two updates, you can't reach the new land, so the answer does not change.
+After the final update, you can reach the newly created land, and the map looks like this:
+
+\noindent
+\begin{verbatim}
+  .#...#
+  .###..
+  .#S##.
+  ..###.
+  ....##
+\end{verbatim}

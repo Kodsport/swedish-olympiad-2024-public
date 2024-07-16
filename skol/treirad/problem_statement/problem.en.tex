@@ -1,0 +1,39 @@
+\problemname{Three in a Row}
+\noindent
+
+The mathematician Lenore Oljer has done so much math that she has grown tired of prime numbers.
+She has now started studying so-called ``nice triplets''. It's very easy to create a nice
+triplet. Start with an integer $a$ greater than zero and then create the triplet
+$(a, a+1, a+2)$. All triplets created in this way are considered nice. Some examples of
+nice triplets are $(4,5,6)$ and $(15,16,17)$.
+
+To learn more about nice triplets, Lenore wants to find out how many numbers can be
+written as the product of all the numbers in a nice triplet. She calls these numbers
+``triple numbers''. Some examples of triple numbers are $24=2 \cdot 3 \cdot 4$
+and $336 = 6 \cdot 7 \cdot 8$. Lenore now wants to know how many triple numbers
+there are that are less than the given number $N$.
+
+Write a program that takes the number $N$ as input and prints out how many numbers
+less than $N$ that are triple numbers.
+
+\section*{Input}
+The first and only line of the input contains the integer $N$ ($1 \le N \le 10^9$),
+whose meaning is described above.
+
+\section*{Output}
+Print an integer: the number of integers less than $N$ that are triple numbers. 
+
+\section*{Points}
+Your solution will be tested on several test case groups.
+To get the points for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $20$       & $N \leq 30$ \\ \hline
+  $2$    & $20$       & $N \leq 80$ \\ \hline
+  $3$    & $20$       & $N \leq 1000$ \\ \hline
+  $4$    & $20$       & $N \leq 10^5$ \\ \hline
+  $5$    & $20$       & No additional constraints. \\ \hline
+\end{tabular}
