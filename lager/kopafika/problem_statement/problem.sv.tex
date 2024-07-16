@@ -1,0 +1,56 @@
+\problemname{Köpa fika}
+\noindent
+
+Ända sedan lilla Kalle vann en gratis biltvätt på trisslott har han börjat se livet på ett annat sätt.
+Han har nämligen börjat märka att han har ofantligt mycket tur i vardagen.
+En bråkdel av de extraordinära händelser han varit med om är att ha vunnit stadens årliga lathetstävling
+efter att ha försovit sig, kommit i tid till skolan varje dag trots att han alltid tagit
+sista bussen och fått $1,4$ av $2$ poäng i högskoleprovet genom att kryssa i slumpmässiga svar.
+
+Han tänker nu använda sin ofantliga tur för att hjälpa riksdagen: han tänker nämligen lösa en instans
+av det ökända knapsack-problemet. Riksdagen har en fikabudget på $C$ kronor och deras fikaleverantör
+har ett utbud av $N$ olika godispåsar. Påse $i$ har ett mått på hur smaskig den är,
+$s_i$, och en kostnad på $c_i$ kronor. Varje godispåse kan bara köpas en gång.
+Målet är att köpa en delmängd av alla påsar, så att totala kostnaden inte överstiger $C$, samtidigt som
+totala nivån av smaskighet är så stor som möjligt. I allmänhet är detta ett väldigt svårt problem att lösa,
+men han hoppas att kunna lösa det snabbt genom att nyttja sin tur. 
+
+Hans idé är följande: först, ta alla påsarna och ordna dem i en slumpmässig ordning. Sedan, ignorera
+de $K$ första påsarna. Därefter kommer han att betrakta varje påse i ordning och köpa den om han har
+råd, annars skippa den och gå vidare. Han fortsätter så ända till han har betraktat alla $N-K$ återstående
+godispåsar. 
+
+Om han har tur med sin valda ordning kommer något $K$ att ge det optimala svaret. Kalle har efter mycket slit
+ändrat ordningen på alla påsar, och han ber nu dig om hjälp med att utföra hans algoritm för varje $K=0,1,\dots,N-1$.
+
+\section*{Indata}
+Första raden innehåller två heltal $N$ och $C$ ($1 \leq N \leq 2 \cdot 10^5$, $1 \leq C \leq 10^9$), antalet godispåsar 
+och riksdagens fikabudget i kronor.
+
+Den andra raden innehåller $N$ heltal $s_1, s_2, \dots, s_N$ ($1 \leq s_i \leq 10^9$), smaskigheten av godispåse $i$.
+
+Den tredje raden innehåller $N$ heltal $c_1, c_2, \dots, c_N$ ($1 \leq c_i \leq 10^9$), hur många kronor godispåse $i$
+kostar.
+
+Notera att ordningen av godispåsar \textit{inte} är vald likformigt slumpmässigt. 
+
+\section*{Utdata}
+Skriv ut $N$ heltal separerade av mellanslag, totala smaskigheten av delmängden godispåsar som Kalles
+algoritm hittar för $K=0,1,\dots,N-1$ i ordning. 
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $9$        & $N \leq 1000$ \\ \hline
+  $2$    & $12$       & $C \leq 50$ \\ \hline
+  $3$    & $11$       & $c_i \leq c_{i+1}$ för alla $i=1,2,\dots,N-1$. \\ \hline
+  $4$    & $17$       & $c_i$ är valt likformigt slumpmässigt \footnote{Se https://en.wikipedia.org/wiki/Discrete\_uniform\_distribution} mellan $1$ och $C$. \\ \hline
+  $5$    & $51$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+

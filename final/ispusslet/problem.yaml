@@ -1,0 +1,8 @@
+author: Joshua Andersson
+source: Programmeringsolympiadens final 2024
+license: cc by-sa
+type: scoring
+grading:
+  show_test_data_groups: true
+
+validation: custom

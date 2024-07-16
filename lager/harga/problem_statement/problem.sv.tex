@@ -1,0 +1,55 @@
+\problemname{Hårgalåten}
+\noindent
+
+Hårgalåten är en folkvisa som handlar om hur djävulen får ett gäng ungdomar att dansa
+tills de dör. Tom gillar Hårgalåten, och har därför skrivit ett arrangemang som hans
+orkester ska spela. För att det ska passa med temat i texten har Tom skrivit 
+arrangemanget på ett sätt som gör att man kan fastna för evigt om man börjar på fel ställe.
+
+Orkestern består av $N$ musiker som sitter i en cirkel, där musiker $1$ sitter till vänster om 
+musiker $2$, som sitter till vänster om musiker $3$, o.s.v. Notera att den som sitter 
+till höger om musiker $N$ är $1$. Arrangemanget består av $M$ olika takter numrerade från $1$ till $M$. 
+Från början finns det en lista med heltal $X_1, X_2, \dots, X_N$,
+där $X_i$ är vilken takt musiker $i$ ska börja spela. Att spela en takt tar en sekund, och alla
+spelar såklart samtidigt. När musiker $i$ har spelat klart takt $X_i$, så tittar hen på vilken 
+takt musikern till höger just spelade (alltså $X_{i+1}$). Därefter spelar $i$ takten $f(X_{i+1})$,
+där $f(1), f(2), \dots, f(M)$ är en given funktion. Detta upprepas sedan om och om igen.
+
+Med andra ord, om musiker $i$ spelade takt $x$ vid sekund $t$, och musikern till höger spelade takt
+$y$ vid sekund $t$, så kommer musiker $i$ spela takt $f(y)$ vid sekund $t+1$. 
+
+Låten tar slut när alla musiker någon gång har spelat alla takter. Din uppgift är att räkna 
+ut, för varje musiker, när hen har spelat alla olika takter i låten minst en gång. Det kan hända 
+att någon musiker aldrig spelar alla takter, i så fall blir orkestern tvungen att spela för evigt.
+
+\section*{Indata}
+Första raden innehåller två heltal $N$ och $M$ ($1 \leq N,M \leq 3 \cdot 10^5$), antalet 
+musiker och antalet takter.
+
+Andra raden innehåller $N$ heltal $X_1, X_2, \dots, X_N$ ($1 \leq X_i \leq M$), vilken takt varje musiker ska 
+spela vid sekund $1$.
+
+Tredje raden innehåller $M$ heltal $f(1), f(2), \dots, f(M)$ ($1 \leq f(i) \leq M$), funktionen som 
+avgör vilka takter musikerna ska spela.
+
+\section*{Utdata}
+Om någon musiker aldrig kommer spela alla takter, skriv ut $-1$.
+Annars, skriv ut $N$ heltal $t_1, t_2, \dots, t_N$, där $t_i$ är antal sekunder det tar för musiker $i$ att spela alla takter.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $10$       & $N = 1$ \\ \hline
+  $2$    & $17$       & $f(i) = i$ för alla $1 \leq i \leq M$. \\ \hline
+  $3$    & $16$       & $N,M \leq 300$ \\ \hline
+  $4$    & $22$       & $N,M \leq 3000$ och $f(i) \neq f(j)$ om $i \neq j$. \\ \hline
+  $5$    & $9$        & $N,M \leq 3000$  \\ \hline
+  $6$    & $26$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+

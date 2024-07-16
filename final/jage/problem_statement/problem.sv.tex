@@ -1,0 +1,56 @@
+\problemname{Jage}
+På Kemigården brukar $N$ chalmerister träffas varje dag och leka jage.
+Leken går ut på att en person är \emph{jagare}, 
+och när denne sedan \emph{tar} en annan person genom att nudda personen blir den tagna personen jagare istället.
+Efter att ha varit med och lekt några gånger har du insett att något inte står rätt till.
+Du har nämligen märkt att det plötsligt finns många fler jagare än vad det borde.
+Om alla håller sig till reglerna borde det alltid finnas exakt en jagare,
+men häromdagen gick leken överstyr och du hade plötsligt ett dussin blodtörstiga datastudenter efter dig.
+
+Du har insett att det måste vara så att vissa studenter tar andra trots att de inte själva är jagare.
+Nu vill du lista ut vilka studenter det är som fuskar på det här sättet.
+En student fuskar ifall de tar någon när de vet att de själva inte är jagare.
+Som tur är var du väldigt noggrann igår, och förde protokoll över både vilka som deltog i leken, och vem som tog vem.
+Efter att ha samlat in denna information ska du nu skriva ett program som berättar vilka studenter som har fuskat.
+
+\section*{Indata}
+Den första raden innehåller två heltal $N$ och $M$ ($2 \leq N \leq 10^5$, $1 \leq M \leq 10^5$), 
+antalet studenter som deltog i leken
+och antalet gånger någon student tog en annan.
+
+Därefter följer en rad med de mellanslagsseparerade namnen $s_1, ..., s_N$ på de studenter som deltog i leken.
+Varje namn består av 1-20 tecken, och innehåller endast bokstäverna \texttt{a-z}. 
+Alla namn är unika.
+Det första namnet i denna lista är personen som började som jagare.
+
+Därefter följer $M$ rader, där varje rad är på formen ``$s_i$ \texttt{tar} $s_j$'', där $s_i \neq s_j$.
+Dessa anger i kronologisk ordning vilka studenter som tar varandra.
+Eftersom du kollade väldigt noga vet du att du inte missade någon tagning.
+
+\section*{Utdata}
+Skriv först ut ett heltal, antalet studenter som fuskade.
+Skriv därefter på en ny rad ut namnen på de studenter som fuskade, 
+sorterade i alfabetisk ordning.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $10$       & $M = 1$. \\ \hline
+  $2$    & $15$       & $N = 2$ \\ \hline
+  $3$    & $15$       & \texttt{joshua} är med i leken, och om någon fuskar så är det han. \\ \hline
+  $4$    & $20$       & $N \leq 200$. \\ \hline
+  $5$    & $40$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av testfall 1}
+Från början är det \texttt{olle} som är jagare. 
+Det betyder att \texttt{alexander} fuskar när han tar \texttt{joshua}. 
+Efter det tror både \texttt{olle} och \texttt{joshua} att de är jagare.
+Eftersom \texttt{joshua} tror att han är jagare fuskar han inte när han tar \texttt{alexander}.
+Till slut tar \texttt{olle} \texttt{joshua}, och det är då \texttt{joshua} och \texttt{alexander} som tror att de är jagare.
+Slutsatsen är att endast \texttt{alexander} fuskade.

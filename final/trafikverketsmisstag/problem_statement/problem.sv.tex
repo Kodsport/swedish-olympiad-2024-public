@@ -1,0 +1,53 @@
+\problemname{Trafikverkets misstag}
+\noindent
+Det otänkbara har hänt! Trafikverkets plan\footnote{Se https://open.kattis.com/problems/trafikverketsplan} gick åt skogen. Precis innan folk tänkte åka hem från jobbet i den lilla staden Lönnköping slog en hiskelig snöstorm ut
+allt internet i staden. Eftersom internet är nere kan de inte få den senaste datan om Trafikverkets plan och kan därför inte
+åka hem utan att riskera att krocka.
+Det faller nu på dig att hitta ett sätt för alla att åka hem utan krockar. Lönnköpings vägnätverk består av $N$ hus och $N-1$ vägar. Varje väg går direkt mellan två hus.
+Om du befinner dig vid ett visst hus kan du åka till alla hus som är kopplade till ditt nuvarande hus med en väg. Nätverket är dessutom konstruerat så att
+man kan ta sig mellan varje par av hus genom att färdas längs med en eller flera vägar.
+
+Tack vare datainsamlingen som skedde inför skapandet av Trafikverkets plan vet du var varje person befinner sig
+(de är alla på jobbet och du vet var de jobbar) och vilket hus de vill åka hem till. Just nu sitter varje person i sin bil utanför sitt jobb och blockerar andra bilar från att köra förbi det huset.
+För att få hem alla säkert kommer du att använda en drönare som flyger runt och säger till folk ``kör hem''. Då kommer de köra hem längs med den kortaste vägen mellan deras arbetsplats
+och deras hem utan att stanna. När de väl är hemma kör de in i garaget och blockerar inga vägar längre. På grund av kylan är drönaren så långsam att du kan anta
+att varje person hinner åka hem och parkera innan drönaren hinner fram till nästa person.
+
+Om en bil någonsin börjar åka hem och det finns en bil i vägen kommer de att krocka på grund av det hala väglaget. Avgör om det finns en ordning som bilarna kan
+köra hem som är helt fri från krockar. Om det finns en sådan ordning, hitta den.
+
+\section*{Indata}
+Den första raden i indatan innehåller två heltal, $N$ och $C$ ($1 \le C \leq N \le 2 \cdot 10^5$), antalet hus i Lönnköpings vägnätverk
+och antalet personer som vill åka hem. 
+
+De följande $N-1$ raderna innehåller vardera heltalen $a,b$ ($1 \leq a,b \leq N$, $a \neq b$),
+vilket betyder att det finns en väg mellan hus $a$ och hus $b$. Det är garanterat att man kan färdas
+mellan varje par av hus genom att åka längs med en eller flera vägar.
+
+Därefter följer $C$ rader som vardera heltalen $W_i$ och $H_i$ ($1 \leq W_i,H_i \leq N$), vilket hus
+den $i$:te personen jobbar i respektive vilket hus de bor i. Det är garanterat att som mest en person befinner sig vid varje hus ($W_i \neq W_j$ för varje $1 \leq i,j \leq N$, $i \neq j$).
+
+\section*{Utdata}
+Om det finns en ordning som invånarna kan åka hem utan att krocka, skriv först ut \texttt{``Yes''}. 
+Skriv sedan ut ordningen som invånarna ska köra hem i. Invånaren som kommer först i indatan representeras
+av $1$ i ordningen, den andra av $2$ och så vidare.
+
+Om det inte finns en ordning utan krockar, skriv ut \texttt{``No''}.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $5$        & $C \leq 8, N \leq 100$ \\ \hline
+  $2$    & $10$       & $N \leq 100$ \\ \hline
+  $3$    & $10$       & $N \leq 4000$, längden på den längsta vägen är mindre än $50$. \\ \hline
+  $4$    & $25$       & $N \leq 4000$ \\ \hline
+  $5$    & $50$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+%\section*{Exempelfall}
+

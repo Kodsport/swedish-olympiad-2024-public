@@ -1,0 +1,69 @@
+\problemname{Laviner}
+\noindent
+Efter att Joshua såg igenom Alexanders försök att förfalska bilder på 
+snöflingor\footnote{Se https://open.kattis.com/problems/falskflinga}
+har Alexander blivit hämdlysten och besatt av snö.
+Alexander har nu tänkt ut en ondskefull plan som kan innebära slutet för Joshua,
+där det första steget är att bjuda med honom på en skidresa.
+
+Tillsammans befinner de sig nu i ett stort skidsystem med $N$ skidbyar numrerade från $1$ till $N$.
+Skidbyarna är sammankopplade med $N-1$ enkelriktade skidbackar.
+Högst upp i skidsystemet ligger skidby $1$,
+och från den går det att ta sig till alla andra
+skidbyar genom att åka ner för en eller flera backar.
+In till varje annan skidby leder exakt en backe.
+
+Steg två i Alexanders ondskefulla plan är att 
+starta en lavin i skidsystemet.
+Det planerar han att göra genom att ställa sig i någon skidby och skapa oljud.
+Då kommer snön i denna skidby att rasa ner längs alla backar som utgår från byn.
+Sedan kommer snön att rasa vidare neråt i alla riktningar så långt som möjligt.
+Lavinens \emph{skadogörelse} är antalet skidbyar som drabbas.
+
+Joshua, som har märkt att Alexander inte verkar vara vid sina sinnens fulla bruk,
+har genomskådat den ondskefulla planen.
+Joshua är, som alla vet, händig, och kan välja vissa skidbyar att bygga murar i.
+En mur i en viss skidby gör att lavinen inte kan sprida sig till byn.
+Alexander kan inte heller starta lavinen från en murad skidby.
+
+Men tiden är knapp, och efter att Joshua varnat
+alla skidåkare för vad som är på väg att hända
+hinner han bara bygga murar i $K$ olika skidbyar.
+Joshua vet inte vilken skidby Alexander kommer ställa sig och skapa oljud i,
+men han vill minimera antalet skidbyar som drabbas av lavinen.
+
+Joshua kommer först att bygga de $K$ murarna så att den maximala skadegörelse
+Alexander kan åstadkomma minimeras.
+Sedan kommer Alexander skapa oljud i skidbyn där det orsakas maximal skadegörelse.
+Din uppgift är att beräkna hur stor skadegörelsen blir,
+alltså hur många skidbyar som drabbas av lavinen.
+
+\section*{Indata}
+Den första raden i indatan innehåller två heltal, $N$ och $K$ ($1 \le K < N \le 10^5$), 
+antalet skidbyar i skidsystemet, och antalet murar Joshua kan sätta ut.
+
+Därefter följer en rad med $N-1$ heltal $a_1, a_2, ..., a_{N-1}$, där $1 \le a_i \le i$.
+För varje $i = 1, 2, ..., N-1$ finns det en skidbacke från skidbyn med nummer $a_i$ till skidbyn med nummer $i+1$. 
+
+\section*{Utdata}
+Skriv ut ett heltal: Den maximala skadogörelsen Alexander kan åstadkomma, givet att Joshua placerar murarna optimalt.
+
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $10$       & $a_i = i$ för alla $(1 \le i \le N-1)$. \\ \hline
+  $2$    & $10$       & $K = 1, N \le 1000$ \\ \hline
+  $3$    & $10$       & $N \le 20$ \\ \hline
+  $4$    & $15$       & $K = 1$ \\ \hline
+  $5$    & $25$       & $N \leq 1000$ \\ \hline
+  $6$    & $30$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+%\section*{Exempelfall}
+

@@ -1,0 +1,91 @@
+\problemname{The Ice Puzzle}
+\noindent
+Olle hates crosses. They remind him too much of getting a \texttt{Wrong Answer} verdict in Programmeringsolympiaden.
+When he arrived at Vallhamra Icehall and saw that there were $K$ ($2 \leq K \leq 20000$) crosses placed on the ice,
+he became angrier than a raging bull.
+
+Being the problem solver he is, Olle has come up with a plan to solve this disastrous situation. He intends to
+transform all crosses into circles. The ice rink can be represented as an $N \times M$ grid, where $K$ squares
+have a cross, and the remaining $N \cdot M - K$ squares are empty. The rows of the grid are numbered from $0$ to $N-1$
+from top to bottom, and the columns are numbered from $0$ to $M-1$ from left to right. When Olle is done,
+all squares that originally had crosses should be transformed to contain circles instead.
+
+Initially, he is at the square marked with \texttt{S}. This square also contains a cross. In a \texttt{move}, he can
+start moving in one of the directions up, down, right, or left, without the ability to turn. He will continue
+in the same direction until he reaches a cross or circle and stops on that square. If there are no crosses or
+circles in the direction Olle is moving, he will collide with the wall, suffering an injury serious enough to
+force him to abandon his plan. Each time he reaches a cross, he stops completely and changes it from a cross to a circle.
+If he ever reaches a circle, he also stops completely and transforms it back into a cross in his blind rage.
+Since he doesn't have all day, he wants to find a sequence of moves containing at most \textbf{$10^5$} moves that
+transforms all crosses into circles. For extra style points, he also wants to finish at the same square as he
+started, but this is not necessary in all test case groups.
+
+\section*{Input}
+The first line of the input contains three integers $N, M$ and $R$ ($2 \le N \cdot M \leq 10^6$, $R \in \{0, 1\}$).
+The values $N$ and $M$ represent the number of rows and columns that make up the grid, and $R$ indicates whether you must
+return to the starting square or not. If $R = 1$, you must return to the start, and if $R = 0$, you can end the sequence
+of moves at any square.
+
+The following $N$ lines each contain a string of length $M$, where the $i$-th of these ($i = 0, 1, \dots, N-1$) describes
+how the $i$-th row of the ice rink looks. Each character is either ``\texttt{.}'', ``\texttt{S}'' or ``\texttt{X}''.
+It is guaranteed that exactly one square contains ``\texttt{S}'' and that the number of ``\texttt{X}'' is equal to
+$K - 1$ (since the starting square is also a cross).
+
+\section*{Output}
+If there exists a sequence of moves that transforms all crosses into circles, first output the length of any such sequence.
+The length can be at most $10^5$. On the next line, output the sequence. It should consist of the characters
+\verb|v|, \verb|<|, \verb|^|, and \verb|>|.
+\verb|v| means that Olle should move downward, \verb|^| upward, \verb|<| to the left, and \verb|>| to the right.
+If $R=1$, Olle must also finish on the same square as he started.
+
+If there is no valid sequence of moves, output $-1$ and nothing else. Note that the existence of a valid sequence may
+depend on whether $R=0$ or $R=1$.
+
+\section*{Points}
+Your solution will be tested on several test case groups.
+To get the points for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $20$       & $R=0, K \leq 100$ \\ \hline
+  $2$    & $5$        & $R=0, K \leq 5000$ \\ \hline
+  $3$    & $15$       & $R=0$ \\ \hline
+  $4$    & $10$       & $R=1, K \leq 100$ \\ \hline
+  $5$    & $30$       & $R=1, K \leq 10000$ \\ \hline
+  $6$    & $20$       & $R=1$ \\ \hline
+\end{tabular}
+
+%\section*{Samples}
+
+\section*{Explanation of Sample 1}
+Initially, Olle is on the cross in the upper-left corner, and the grid looks like this:
+\noindent
+\begin{verbatim}
+  X.X
+  ...
+  X.X
+\end{verbatim}
+After the moves \verb|>|, \verb|v| and \verb|^|, Olle is located at the top-right cell of the grid, and it looks like this:
+\noindent
+\begin{verbatim}
+  X.X
+  ...
+  X.O
+\end{verbatim}
+After having made the moves \verb|<| and \verb|>|, he is still located att at the top-right cell of the grid, and it looks like this:
+\noindent
+\begin{verbatim}
+  O.O
+  ...
+  X.O
+\end{verbatim}
+Finally, he will make the moves \verb|<|, \verb|v|, \verb|^| to create a cross-free ice rink, where he also
+finishes at the starting position (this is not a requirement in this test case, as $R=0$):
+\noindent
+\begin{verbatim}
+  O.O
+  ...
+  O.O
+\end{verbatim}

@@ -1,0 +1,65 @@
+\problemname{Avalanche}
+
+\noindent
+After Joshua saw through Alexander's attempts to fake pictures of snowflakes\footnote{See https://open.kattis.com/problems/falskflinga}, 
+Alexander has become vengeful and obsessed with snow. 
+He has come up with an evil master plan which could be the end of Joshua, 
+where the first step is to invite him on a skiing trip. 
+
+Together, they are now in a large skiing system with $N$ ski villages numbered from $1$ to $N$. 
+The villages are connected by $N-1$ one-way ski slopes. 
+At the top of the ski system is village $1$, and from there
+it is possible to reach every other village by going down
+one or more skiing slopes.
+The rest of the villages each have exactly one slope leading into them.
+
+The second step of Alexander's evil master plan
+is to start an avalanche in the skiing system. 
+He plans to do this by making loud noises in one of the villages.
+The snow in this village will then tumble down along all slopes originating from the village. 
+The snow will keep tumbling downward in all directions as far as possible. 
+The \emph{damage} of the avalanche is the number of villages affected.
+
+Joshua, noticing that Alexander does not seem to be in his right mind, 
+has seen through Alexander's evil master plan. 
+Joshua is, as known by all, handy, and can choose some villages to build walls in. 
+A wall in a village prevents the avalanche from reaching it. 
+Alexander cannot start the avalanche from a walled ski village.
+
+But time is running out, 
+and after warning other skiers about what is about to happen, 
+Joshua only has time to build walls in $K$ different villages. 
+Joshua does not know in which village Alexander will make loud noises,
+but he wants to minimize the number of villages affected.
+
+First, Joshua will build the $K$ walls so that the maximum damage Alexander can cause is minimized. 
+Then Alexander will make loud noises in the village that causes the maximum possible damage. 
+Your task is to calculate the damage, i.e., the number of villages affected by the avalanche.
+
+\section*{Input}
+The first line of input has the two numbers $N$ and $K$ ($1 \le K < N \le 10^5$),
+the number of villages in the skiing system, and the number of walls Joshua can build.
+
+Then there is a row containing the $N-1$ numbers $a_1, a_2, ..., a_{N-1}$, where $1 \le a_i \le i$.
+For each $i = 1, 2, ..., N-1$, there is a ski slope from the village with number $a_i$ to the village with number $i+1$.
+
+\section*{Output}
+Output a single number: The maximum damage Alexander can cause, given that Joshua builds the walls optimally.
+
+\section*{Points}
+Your solution will be tested on several test case groups.
+To get the points for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $10$       & $a_i = i$ for all $(1 \le i \le N-1)$. \\ \hline
+  $2$    & $10$       & $K = 1, N \le 1000$ \\ \hline
+  $3$    & $10$       & $N \le 20$ \\ \hline
+  $4$    & $15$       & $K = 1$ \\ \hline
+  $5$    & $25$       & $N \leq 1000$ \\ \hline
+  $6$    & $30$       & No additional constraints. \\ \hline
+\end{tabular}
+
+%\section*{Samples}

@@ -1,0 +1,54 @@
+\problemname{Buying Fika}
+
+\noindent
+Ever since little Kalle won a free car wash from a scratch-off ticket, he has started to see life differently.
+He has begun to notice that he has an immense amount of luck in everyday situations.
+A fraction of the extraordinary events he has recently experienced includes winning the city's annual laziness
+competition due to him oversleeping, arriving on time at school every day despite taking the last bus,
+and scoring $1.4$ out of $2$ points on the university entrance exam by randomly selecting answers.
+
+He now intends to use his immense luck to help the parliament: he plans to solve an instance of the infamous knapsack problem.
+The parliament has a fika budget of $C$ Swedish kronor, and their fika supplier has a selection of $N$ different candy bags.
+Each bag $i$ has a measure of how delicious it is, $s_i$, and a cost of $c_i$ kronor. You can only buy each candy bag once.
+The goal is to purchase a subset of all the bags, such that the total cost does not exceed $C$, while maximizing the total
+level of deliciousness. In general, this is a very difficult problem to solve, but he hopes to solve it quickly by
+leveraging his luck.
+
+His idea is as follows: first, take all the bags and arrange them in a random order. Then, ignore the first $K$ bags.
+After that, he will consider each bag in order and buy it if he can afford it, otherwise skip it and move on.
+He continues this process until he has considered all $N-K$ candy bags.
+
+If he is lucky with his chosen order, some $K$ will give the optimal solution. After a lot of effort, Kalle has changed the order of
+all the bags, and he now asks for your help in executing his algorithm for each $K=0,1,\dots,N-1$.
+
+\section*{Input}
+The first line of input contains two integers $N$ and $C$ ($1 \leq N \leq 2 \cdot 10^5$, $1 \leq C \leq 10^9$), the
+number of candy bags and the parliament's fika budget in kronor.
+
+The second line of input contains $N$ integers $s_1, s_2, \dots, s_N$ ($1 \leq s_i \leq 10^9$), the deliciousness of candy bag $i$.
+
+The third line contains $N$ integers $c_1, c_2, \dots, c_N$ ($1 \leq c_i \leq 10^9$), the price of candy bag $i$ in kronor.
+
+Note that the order of candy bags is \textit{not} chosen uniformly randomly. 
+
+
+\section*{Output}
+Output $N$ integers separated by spaces, the total deliciousness of the subset of bags that Kalle's
+algorithm finds for $K=0,1,\dots,N-1$ in order. 
+
+\section*{Points}
+Your solution will be tested on several test case groups.
+To get the points for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $9$        & $N \leq 1000$ \\ \hline
+  $2$    & $12$       & $C \leq 50$ \\ \hline
+  $3$    & $11$       & $c_i \leq c_{i+1}$ for all $i=1,2,\dots,N-1$. \\ \hline
+  $4$    & $17$       & $c_i$ is chosen uniformly randomly \footnote{See https://en.wikipedia.org/wiki/Discrete\_uniform\_distribution} between $1$ and $C$. \\ \hline
+  $5$    & $51$       & No additional constraints. \\ \hline
+\end{tabular}
+
+%\section*{Samples}

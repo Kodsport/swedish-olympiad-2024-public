@@ -1,0 +1,58 @@
+\problemname{Trafikverket's Mistake}
+\noindent
+The unthinkable has happened! The plan laid by the traffic department (Trafikverket\footnote{See https://open.kattis.com/problems/trafikverketsplan}) has gone awry. Just before people were about to leave work in the small town of Lönnköping,
+a horrendous snowstorm knocked out all the internet in the town. Since the internet is down, they can't get the latest
+information about Trafikverket's Plan, and therefore can't drive home without risking a crash.
+
+It is now your job to find a way for everyone to get home without any collisions. Lönnköping's road network consists
+of $N$ houses and $N-1$ roads. Each road directly connects two houses. If you are at a certain house, you can
+travel to all houses connected to your current house by a road. The network is also constructed such that one can
+travel between every pair of houses by using one or more roads.
+
+Thanks to the data collection that took place before the creation of Trafikverket's Plan, you know where each person
+is located (they are all at work, and you know where they work) and which house they want to go home to.
+Right now, each person is sitting in their car outside their workplace, blocking other cars from passing by that house.
+To get everyone home safely, you will use a drone that flies around and tells people to ``drive home''. They will then
+drive home along the shortest path between their workplace and their home without stopping. Once they are home,
+they will park their car in their garage and no longer block any roads. Due to the cold, the drone is so slow
+that you can assume that each person has sufficient time to drive home and park before the drone reaches the next person.
+
+If a car ever starts driving home and there is another car in the way, they will collide due to the slippery road conditions.
+Determine if there is an order in which the cars can drive home that is completely free from collisions.
+If such an order exists, find it.
+
+\section*{Input}
+The first line of the input contains two integers, $N$ and $C$ ($1 \le C \leq N \le 2 \cdot 10^5$), the number of houses
+in Lönnköping's road network and the number of people who want to go home.
+
+The following $N-1$ lines each contain two integers, $a$ and $b$ ($1 \leq a,b \leq N$, $a \neq b$), indicating that there
+is a road between house $a$ and house $b$. It is guaranteed that one can travel between every pair of houses by traveling
+along one or more roads.
+
+After that, there are $C$ lines, each containing two integers $W_i$ and $H_i$ ($1 \leq W_i,H_i \leq N$), indicating the
+house where the $i$-th person works and the house where they live, respectively. It is guaranteed that at most one person
+starts at each house ($W_i \neq W_j$ for every $1 \leq i, j \leq N$, $i \neq j$).
+
+\section*{Output}
+If there is an order in which the residents can drive home without collisions, first output \texttt{``Yes''}.
+Then, print out the order in which the residents should drive home. The resident represented first in the
+input corresponds to $1$ in the order, the second one to $2$, and so on.
+
+If there is no order without collisions, output \texttt{``No''}.
+
+\section*{Points}
+Your solution will be tested on several test case groups.
+To get the points for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $5$        & $C \leq 8, N \leq 100$ \\ \hline
+  $2$    & $10$       & $N \leq 100$ \\ \hline
+  $3$    & $10$       & $N \leq 4000$, the length of the longest path is less than $50$. \\ \hline
+  $4$    & $25$       & $N \leq 4000$ \\ \hline
+  $5$    & $50$       & No additional constraints. \\ \hline
+\end{tabular}
+
+%\section*{Samples}

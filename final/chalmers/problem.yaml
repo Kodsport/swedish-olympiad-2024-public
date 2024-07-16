@@ -1,0 +1,13 @@
+author: Olle Lapidus
+source: Programmeringsolympiadens final 2024
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: scoring
+
+validation: custom interactive
+
+grading:
+    show_test_data_groups: yes
+
+limits:
+    time_multiplier: 2

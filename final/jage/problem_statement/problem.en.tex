@@ -1,0 +1,60 @@
+\problemname{Tag}
+Every day, $N$ Chalmers student meet up at Kemigården to play tag.
+In this game, there is a \emph{hunter}, and when this person
+\emph{tags} another person, the other person becomes the hunter instead.
+After playing a couple of times, you realize that something is not right.
+Namely, you have noticed that there are suddenly many more hunters than there should be.
+If everyone follows the rules, there should always be exactly one hunter.
+However, the other day the game got out of hand,
+and suddenly you had a dozen bloodthirsty engineering students chasing you.
+
+You have realized that some students must be tagging other people even though they themselves are not hunters.
+Now you want to figure out which students have cheated in this way.
+A student cheats if they ever tag another student while knowing that they themselves are not a hunter.
+Luckily, yesterday you very carefully took down notes about both who participated in the games, and who tagged who.
+After collecting this information you are now going to write a program that tells you which students cheated.
+
+\section*{Input}
+
+The first line contain two integers $N$ and $M$ ($2 \leq N \leq 10^5$, $1 \leq M \leq 10^5$), 
+representing the number of students who participated in the game 
+and the number of times one student tagged another.
+
+Following that, there is a line with space-separated names $s_1, ..., s_N$ 
+of the students who participated in the game. 
+Each name consists of 1-20 characters and only contains the letters \texttt{a-z}. 
+All names are unique. The first name in this list is the person who started as the hunter.
+
+Finally, there are $M$ lines, where each line is in the form ``$s_i$ \texttt{tar} $s_j$'', 
+with $s_i \neq s_j$, which means that $s_i$ has tagged $s_j$. These lines indicate in chronological order which students tagged each other. 
+Since you observed the game very carefully, you are sure that you did not miss any tags.
+
+\section*{Output}
+First write an integer, the number of students who cheated.
+After that, on a new line, write the names of the students who cheated,
+sorted in alphabetical order.
+
+\section*{Scoring}
+Your solution will be tested on a number of sample groups.
+To get points in a group your solution must pass all test cases in that group.
+
+
+\noindent
+\begin{tabular}{| l | l | l |}
+  \hline
+  Group & Point value & Constraints \\ \hline \hline
+  $1$    & $10$       & $M = 1$ \\ \hline
+  $2$    & $15$       & $N = 2$ \\ \hline
+  $3$    & $15$       & \texttt{joshua} is playing, and either no one cheats or only \texttt{joshua} cheats. \\ \hline
+  $4$    & $20$       & $N \leq 200$ \\ \hline
+  $5$    & $40$       & No further constraints. \\ \hline
+\end{tabular}
+
+
+\section*{Explanation of sample case 1}
+At the beginning, \texttt{olle} is the hunter.
+This means that \texttt{alexander} cheats when he tags \texttt{joshua}.
+After that, both \texttt{olle} and \texttt{joshua} believe that they are the hunter.
+Since \texttt{joshua} thinks he is the hunter, he is not cheating when he tags \texttt{alexander}.
+Finally, \texttt{olle} tags \texttt{joshua}, and after that \texttt{joshua} and \texttt{alexander} believe that they are hunters.
+The conclusion is the only who cheated was \texttt{alexander}.
